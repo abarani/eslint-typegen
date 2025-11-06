@@ -139,10 +139,8 @@ export async function pluginsToRulesDTS(
     ...(includeAugmentation
       ? [
           '',
-          `declare module 'eslint' {`,
-          `  namespace Linter {`,
-          `    interface RulesRecord extends ${exportTypeName} {}`,
-          `  }`,
+          `declare module '@eslint/core' {`,
+          `  interface RulesConfig extends ${exportTypeName} {}`,
           `}`,
         ]
       : []),
